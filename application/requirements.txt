@@ -1,0 +1,26 @@
+# =============================================================================
+# REQUIREMENTS - Avocado Price Prediction
+# =============================================================================
+
+# Data Science
+pandas>=1.5.0
+numpy>=1.23.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Machine Learning
+scikit-learn>=1.2.0
+xgboost>=1.7.0
+joblib>=1.2.0
+
+# Backend API
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Frontend
+streamlit>=1.28.0
+requests>=2.31.0
+
+# Utilitaires
+pipreqs>=0.4.11
+
