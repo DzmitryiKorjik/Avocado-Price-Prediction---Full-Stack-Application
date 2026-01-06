@@ -174,3 +174,22 @@ curl -X POST http://localhost:5000/predict \
 | `model/avocado_prediction.py` | Entraîne le modèle XGBoost et génère le fichier .pkl |
 | `back/back.py`                | API Flask pour les prédictions (port 5000)           |
 | `front/front.py`              | Interface Streamlit (port 8501)                      |
+
+## 🔄 Architecture du flux
+
+```
+┌─────────────────┐      POST /predict       ┌─────────────────┐
+│                 │  ─────────────────────►  │                 │
+│   FRONTEND      │      JSON data           │    BACKEND      │
+│   (Streamlit)   │                          │    (Flask)      │
+│   Port 8501     │  ◄─────────────────────  │    Port 5000    │
+│                 │      prediction          │                 │
+└─────────────────┘                          └─────────────────┘
+```
+
+**Flux de données :**
+
+1. L'utilisateur remplit le formulaire dans le **Frontend** (Streamlit)
+2. Les données sont envoyées en **JSON** au **Backend** (Flask) via `POST /predict`
+3. Le Backend utilise le **modèle XGBoost** pour prédire le prix
+4. La **prédiction** est renvoyée au Frontend et affichée à l'utilisateur
